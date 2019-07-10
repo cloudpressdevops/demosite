@@ -75,7 +75,7 @@
       <div class="field">
         <label class="label">Mitarbeiter</label>
         <div class="control">
-          <input class="input" type="text" placeholder="name@company.com">
+          <input class="input" type="text" name="employee" placeholder="name@company.com">
         </div>
       </div>
 
@@ -85,7 +85,7 @@
             <div class="field">
               <label class="label">Kunde</label>
               <div class="control">
-                <input class="input" type="text" placeholder="Kunde">
+                <input class="input" type="text" name="customer" placeholder="Kunde">
               </div>
           </div>
         </div>
@@ -95,7 +95,7 @@
               <label class="label">Branche</label>
               <div class="control">
                 <div class="select">
-                  <select>
+                  <select name="branche">
                     <option>Branche1</option>
                     <option>Branche2</option>
                     <option>Branche3</option>
@@ -111,7 +111,7 @@
       <div class="field">
         <label class="label">Beschreibung</label>
         <div class="control">
-          <textarea class="textarea" placeholder="Verwendungszweck"></textarea>
+          <textarea name="description" class="textarea" placeholder="Verwendungszweck"></textarea>
         </div>
       </div>
 
@@ -121,7 +121,7 @@
               <div class="field">
                 <label class="label">Workflow Nummer</label>
                 <div class="control">
-                  <input class="input" type="text" placeholder="Nummer">
+                  <input class="input" type="text" name="workflow" placeholder="Nummer">
                 </div>
             </div>
           </div>
@@ -130,7 +130,7 @@
               <div class="field">
                 <label class="label">Anfrage von</label>
                 <div class="control">
-                  <input class="input" type="text" placeholder="name@company.com">
+                  <input class="input" type="text" name="requestBy" placeholder="name@company.com">
                 </div>
               </div>
             </div>
@@ -139,7 +139,7 @@
             
       <div class="field is-grouped">
         <div class="control">
-          <button class="button is-primary">Submit</button>
+          <button class="button is-primary submit">Submit</button>
         </div>
         <div class="control">
           <button class="button is-text">Cancel</button>
@@ -149,6 +149,7 @@
   </div>
 </body>
 <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+<script src="js/createDemo.js"></script>
 <script>
   document.addEventListener('DOMContentLoaded', () => {
 
