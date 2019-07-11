@@ -6,10 +6,10 @@ submitButton.addEventListener('click', (e) => {
 });
 
 
-const createDemo = () => {
+const createDemo = async () => {
   var formData = new FormData(document.querySelector('form'));
 
-  const formDataJson = {
+  let formDataJson = {
     'employee': formData.get('employee'),
     'customer': formData.get('customer'),
     'branche': formData.get('branche'),
@@ -20,12 +20,17 @@ const createDemo = () => {
   
   // console.log(formDataJson);
   let url = 'http://localhost:5001/create'
-  fetch(url, {
+  await fetch(url, {
     method: 'POST',
-    body: JSON.stringify(formDataJson),
+    mode: 'cors',
     headers: {
       'Content-Type': 'application/json'
-    }
+    },
+    body: JSON.stringify(formDataJson)
   })
-    .then(res => console.log(JSON.stringify(res)))
+    .then(res => {
+      return res.json()
+    })
+    .then(res => console.log(res))
+    .catch(res => console.log("Couldn't create Demo."))
 };
