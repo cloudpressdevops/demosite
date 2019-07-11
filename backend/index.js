@@ -23,12 +23,10 @@ app.post('/create', [
     check('customer').isLength({min: 3}),
     check('description').isLength({min: 15}),
   ], (req, res) => {
-  const employee = req.body.email
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
     return res.status(422).send('Invalid Data!')
-  }
-  else {
+  } else {
     res.status(200).json(req.body);
     fs.writeFile(settings.localPath,JSON.stringify(req.body,null,2), (err) => {
       if (err) {
