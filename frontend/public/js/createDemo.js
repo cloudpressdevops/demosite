@@ -2,8 +2,27 @@ const submitButton = document.querySelector('.submit');
 
 submitButton.addEventListener('click', (e) => {
   e.preventDefault();
-  createDemo();
+  validateFields();
 });
+
+const createDemo = async (data) => {
+  
+  let url = 'http://localhost:5001/create'
+
+  await fetch(url, {
+    method: 'POST',
+    mode: 'cors',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(data)
+  })
+    .then(res => {
+      return res.json()
+    })
+    .then(res => console.log(res))
+    .catch(res => console.log("Couldn't create Demo."))
+};
 
 const checkFields = (name, field, type, minLength) => {
   if(type === 'email') {
@@ -23,10 +42,9 @@ const checkFields = (name, field, type, minLength) => {
   }
 }
 
-const createDemo = async () => {
+const validateFields = () => {
   const form = document.querySelector('form')
   var formData = new FormData(form);
-  let url = 'http://localhost:5001/create'
 
   let formDataJson = {
     'employee': formData.get('employee'),
@@ -49,8 +67,8 @@ const createDemo = async () => {
   validationErrors = validationErrors.filter( (el) => {
     return el !=null;
   });
-
-  if (validationErrors) {
+  
+  if (validationErrors.length > 0) {
 
     if(validationErrors.includes('employee')) {
       if(!employeeSelector.classList.contains("is-danger")) {
@@ -83,18 +101,7 @@ const createDemo = async () => {
     }
     
   } else {
-    await fetch(url, {
-      method: 'POST',
-      mode: 'cors',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(formDataJson)
-    })
-      .then(res => {
-        return res.json()
-      })
-      .then(res => console.log(res))
-      .catch(res => console.log("Couldn't create Demo."))
-  }
+    console.log("hi");
+    createDemo(formDataJson);
+}
 };
