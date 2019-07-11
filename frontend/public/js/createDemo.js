@@ -7,7 +7,8 @@ submitButton.addEventListener('click', (e) => {
 
 
 const createDemo = async () => {
-  var formData = new FormData(document.querySelector('form'));
+  const form = document.querySelector('form')
+  var formData = new FormData(form);
 
   let formDataJson = {
     'employee': formData.get('employee'),

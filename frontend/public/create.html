@@ -70,12 +70,13 @@
   <div class="container">
     <h1 class="title is-1">Demo Deployment</h1>
     <br>
+
     <form>
 
       <div class="field">
         <label class="label">Mitarbeiter</label>
         <div class="control">
-          <input class="input" type="text" name="employee" placeholder="name@company.com">
+          <input class="input" type="text" name="employee" placeholder="name@company.com" required>
         </div>
       </div>
 
@@ -85,7 +86,7 @@
             <div class="field">
               <label class="label">Kunde</label>
               <div class="control">
-                <input class="input" type="text" name="customer" placeholder="Kunde">
+                <input class="input is-required" type="text" name="customer" placeholder="Kunde" required>
               </div>
           </div>
         </div>
@@ -111,7 +112,7 @@
       <div class="field">
         <label class="label">Beschreibung</label>
         <div class="control">
-          <textarea name="description" class="textarea" placeholder="Verwendungszweck"></textarea>
+          <textarea name="description" class="textarea" placeholder="Verwendungszweck" required></textarea>
         </div>
       </div>
 
@@ -121,7 +122,7 @@
               <div class="field">
                 <label class="label">Workflow Nummer</label>
                 <div class="control">
-                  <input class="input" type="text" name="workflow" placeholder="Nummer">
+                  <input class="input" type="text" name="workflow" placeholder="Nummer" required>
                 </div>
             </div>
           </div>
@@ -130,7 +131,7 @@
               <div class="field">
                 <label class="label">Anfrage von</label>
                 <div class="control">
-                  <input class="input" type="text" name="requestBy" placeholder="name@company.com">
+                  <input class="input" type="text" name="requestBy" placeholder="name@company.com" required>
                 </div>
               </div>
             </div>
