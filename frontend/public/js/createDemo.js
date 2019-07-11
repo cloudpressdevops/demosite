@@ -18,5 +18,14 @@ const createDemo = () => {
     'requestBy': formData.get('requestBy')
   }
   
-  console.log(formDataJson);
+  // console.log(formDataJson);
+  let url = 'http://localhost:5001/create'
+  fetch(url, {
+    method: 'POST',
+    body: JSON.stringify(formDataJson),
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  })
+    .then(res => console.log(JSON.stringify(res)))
 };
