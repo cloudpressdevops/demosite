@@ -78,6 +78,7 @@
         <div class="control">
           <input class="input" id="employee" type="text" name="employee" placeholder="name@company.com" required>
         </div>
+        <p class="help is-danger" id="help-email">Muss eine valide EMail enthalten!</p>
       </div>
 
       <div class="columns">
@@ -89,23 +90,40 @@
                 <input class="input is-required" id="customer" type="text" name="customer" placeholder="Kunde" required>
               </div>
           </div>
+          <p class="help is-danger" id="help-customer">Muss 3 oder mehr Zeichen enthalten!</p>
         </div>
 
-        <div class="column is-half">
-            <div class="field">
-              <label class="label">Branche</label>
-              <div class="control">
-                <div class="select">
-                  <select name="branche">
-                    <option>Branche1</option>
-                    <option>Branche2</option>
-                    <option>Branche3</option>
-                    <option>Branche4</option>
-                  </select>
-                </div>
+        <div class="column">
+          <div class="field">
+            <label class="label">Branche</label>
+            <div class="control">
+              <div class="select">
+                <select name="branche">
+                  <option>Branche1</option>
+                  <option>Branche2</option>
+                  <option>Branche3</option>
+                  <option>Branche4</option>
+                </select>
               </div>
             </div>
           </div>
+        </div>
+
+        <div class="column is-half">
+          <div class="field">
+            <label class="label">Lizenzen</label>
+            <div class="control">
+              <div class="select">
+                <select name="licenses">
+                  <option>0</option>
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
 
       </div>
 
@@ -114,6 +132,7 @@
         <div class="control">
           <textarea name="description" id="description" class="textarea" placeholder="Verwendungszweck" required></textarea>
         </div>
+        <p class="help is-danger" id="help-description">Muss 15 oder mehr Zeichen enthalten!</p>
       </div>
 
       <div class="columns">
@@ -140,10 +159,10 @@
             
       <div class="field is-grouped">
         <div class="control">
-          <button class="button is-primary submit">Submit</button>
+          <button class="button is-primary submit">Erstellen</button>
         </div>
         <div class="control">
-          <button class="button is-text">Cancel</button>
+          <button class="button is-text" id="cancel">Abbrechen</button>
         </div>
       </div>
     </form>

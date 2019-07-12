@@ -1,9 +1,35 @@
 const submitButton = document.querySelector('.submit');
+const cancelButton = document.querySelector('.submit');
+const form = document.querySelector('form');
+let employeeSelector = document.querySelector('#employee');
+let customerSelector = document.querySelector('#customer');
+let descriptionSelector = document.querySelector('#description');
 
 submitButton.addEventListener('click', (e) => {
   e.preventDefault();
   validateFields();
 });
+
+employeeSelector.addEventListener('input', () => {
+  if(employeeSelector.classList.contains("is-danger")) {
+    employeeSelector.classList.remove("is-danger");
+    document.querySelector('#help-email').style.display = 'none';
+  }
+});
+
+customerSelector.addEventListener('input', () => {
+  if(customerSelector.classList.contains("is-danger")) {
+    customerSelector.classList.remove("is-danger");
+    document.querySelector('#help-customer').style.display = 'none';
+  }
+});
+
+descriptionSelector.addEventListener('input', () => {
+  if(descriptionSelector.classList.contains("is-danger")) {
+    descriptionSelector.classList.remove("is-danger");
+    document.querySelector('#help-description').style.display = 'none';
+  }
+})
 
 const createDemo = async (data) => {
   
@@ -43,7 +69,7 @@ const checkFields = (name, field, type, minLength) => {
 }
 
 const validateFields = () => {
-  const form = document.querySelector('form')
+  
   var formData = new FormData(form);
 
   let formDataJson = {
@@ -52,17 +78,14 @@ const validateFields = () => {
     'branche': formData.get('branche'),
     'description': formData.get('description'),
     'workflow': formData.get('workflow'),
-    'requestBy': formData.get('requestBy')
+    'requestBy': formData.get('requestBy'),
+    'licenses': formData.get('licenses')
   }
   
   let validationErrors = [];
   validationErrors.push(checkFields('employee',formData.get('employee'),'email'));
   validationErrors.push(checkFields('customer',formData.get('customer'),'text',3));
   validationErrors.push(checkFields('description',formData.get('description'),'text',15));
-
-  let employeeSelector = document.querySelector('#employee');
-  let customerSelector = document.querySelector('#customer');
-  let descriptionSelector = document.querySelector('#description');
 
   validationErrors = validationErrors.filter( (el) => {
     return el !=null;
@@ -73,6 +96,7 @@ const validateFields = () => {
     if(validationErrors.includes('employee')) {
       if(!employeeSelector.classList.contains("is-danger")) {
         employeeSelector.classList += " is-danger"
+        document.querySelector('#help-email').style.display = 'block';
       }
     } else {
       if (employeeSelector.classList.contains("is-danger")) {
@@ -83,6 +107,7 @@ const validateFields = () => {
     if(validationErrors.includes('customer')) {
       if(!customerSelector.classList.contains("is-danger")) {
         customerSelector.classList += " is-danger"
+        document.querySelector('#help-customer').style.display = 'block';
       }
     } else {
       if (customerSelector.classList.contains("is-danger")) {
@@ -93,6 +118,7 @@ const validateFields = () => {
     if(validationErrors.includes('description')) {
       if(!descriptionSelector.classList.contains("is-danger")) {
         descriptionSelector.classList += " is-danger"
+        document.querySelector('#help-description').style.display = 'block';
       }
     } else {
       if (descriptionSelector.classList.contains("is-danger")) {
@@ -101,7 +127,6 @@ const validateFields = () => {
     }
     
   } else {
-    console.log("hi");
     createDemo(formDataJson);
 }
 };

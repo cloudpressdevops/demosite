@@ -8,6 +8,6 @@
   max-width: 60%;
 }
 
-.navbar {
-  box-shadow: 1px;
+#help-email, #help-customer, #help-description {
+  display: none;
 }
